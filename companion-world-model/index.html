@@ -145,6 +145,17 @@
       background: #0b0d12;
       filter: contrast(1.04) saturate(1.06) brightness(.96);
     }
+    .image-panel figcaption,
+    .image-grid figcaption {
+      border-top: 1px solid var(--line);
+      padding: 16px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      background: rgba(245,241,231,.025);
+    }
+    .image-panel figcaption strong,
+    .image-grid figcaption strong { color: var(--acid); }
     .image-grid {
       padding: 80px clamp(28px,5vw,70px);
       border-bottom: 1px solid var(--line);
@@ -158,6 +169,8 @@
       border: 1px solid var(--line);
       background: #0b0d12;
       overflow: hidden;
+      display: grid;
+      grid-template-rows: minmax(320px,1fr) auto;
     }
     .image-grid img {
       width: 100%;
@@ -232,6 +245,28 @@
     .insight-card h2 { font-size: var(--title-card); line-height: 1.16; margin-bottom: 20px; }
     .insight-card h2 span { color: var(--acid); }
     .insight-card p { color: var(--muted); font-size: 17px; line-height: 1.72; }
+
+    .pilot-strip {
+      padding: 34px clamp(28px,5vw,70px);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: minmax(260px,.58fr) 1fr;
+      gap: 30px;
+      align-items: center;
+      background: linear-gradient(90deg, rgba(215,255,0,.08), rgba(37,217,255,.035) 52%, transparent);
+    }
+    .pilot-strip b {
+      color: var(--acid);
+      font-size: clamp(1.6rem,2.4vw,2.25rem);
+      line-height: 1.18;
+    }
+    .pilot-strip p {
+      margin: 0;
+      color: rgba(245,241,231,.78);
+      font-size: 17px;
+      line-height: 1.72;
+      max-width: 900px;
+    }
 
     /* ── FLYWHEEL ── */
     .flywheel-wrap {
@@ -481,6 +516,28 @@
     .phases-head h2 { font-size: var(--display-section); line-height: 1.08; margin-bottom: 20px; }
     .phases-head p { color: var(--muted); font-size: 19px; line-height: 1.68; }
 
+    .delivery-boundary {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 22px;
+      margin: 0 0 34px;
+      padding: 22px 24px;
+      border: 1px solid rgba(215,255,0,.32);
+      background: rgba(215,255,0,.055);
+    }
+    .delivery-boundary b {
+      color: var(--acid);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+    .delivery-boundary p {
+      margin: 0;
+      color: rgba(245,241,231,.78);
+      font-size: 15px;
+      line-height: 1.68;
+    }
+    .delivery-boundary strong { color: var(--ink); }
+
     .phase-list { display: grid; gap: 0; border: 1px solid var(--line); }
     .phase {
       display: grid; grid-template-columns: 240px 1fr 280px;
@@ -603,17 +660,36 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      display: none;
       filter: saturate(1.05) contrast(1.06) brightness(.86);
     }
     .video-shell video {
       position: absolute;
       inset: 0;
-      opacity: 0;
-      transition: opacity .35s ease;
+      opacity: 1;
+      transition: none;
     }
     .output:hover .video-shell video { opacity: 1; }
     video { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.05) contrast(1.06) brightness(.82); }
+    .video-direct {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 3;
+      padding: 9px 12px;
+      border: 1px solid rgba(245,241,231,.28);
+      background: rgba(7,8,11,.72);
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-decoration: none;
+      backdrop-filter: blur(14px);
+    }
+    .video-direct:hover {
+      border-color: rgba(215,255,0,.6);
+      color: var(--acid);
+      background: rgba(7,8,11,.9);
+    }
     .output-copy { padding: clamp(28px,4vw,52px); display: flex; flex-direction: column; justify-content: center; }
     .output-copy small { color: var(--acid); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 16px; }
     .output-copy h3 { font-size: 3rem; line-height: 1.08; }
@@ -624,6 +700,14 @@
     .cta-body { padding: clamp(52px,8vw,100px) clamp(28px,5vw,70px); border-right: 1px solid var(--line); }
     .cta-body h2 { font-size: var(--display-section); line-height: 1.08; margin-bottom: 22px; }
     .cta-body p { color: var(--muted); font-size: 18px; line-height: 1.68; margin: 0 0 36px; max-width: 620px; }
+    .cta-body .cta-next {
+      margin-top: -12px;
+      padding: 18px 20px;
+      border: 1px solid rgba(215,255,0,.28);
+      background: rgba(215,255,0,.05);
+      color: rgba(245,241,231,.82);
+      font-size: 16px;
+    }
     .cta-links { display: grid; gap: 12px; }
     .cta-link { display: grid; grid-template-columns: 90px 1fr; border: 1px solid var(--line); background: rgba(245,241,231,.03); transition: background .2s, border-color .2s; }
     .cta-link:hover { background: rgba(215,255,0,.07); border-color: rgba(215,255,0,.45); }
@@ -657,6 +741,7 @@
       .hero, .insight, .bond-section, .killer, .cta, .final-inner { grid-template-columns: 1fr; }
       .hero-copy, .insight-card, .bond-col, .kc, .cta-body { border-right: none; border-bottom: 1px solid var(--line); }
       .hero-copy, .hero-visual { min-height: 680px; }
+      .pilot-strip { grid-template-columns: 1fr; }
       .moat-stack { grid-template-columns: 1fr 1fr; }
       .moat-layer { border-bottom: 1px solid var(--line); }
       .money-flow { grid-template-columns: 1fr 1fr; }
@@ -669,6 +754,7 @@
       .fw-row { grid-template-columns: 1fr 40px 1fr 40px 1fr 40px 1fr; }
       .fw-connectors { }
       .phase { grid-template-columns: 1fr; }
+      .delivery-boundary { grid-template-columns: 1fr; }
       .phase-num-col { border-right: none; border-bottom: 1px solid var(--line); }
       .phase-desc-col { border-right: none; border-bottom: 1px solid var(--line); }
       .matrix-explain { grid-template-columns: 1fr; }
@@ -760,9 +846,20 @@
       </div>
     </section>
 
+    <section class="pilot-strip" aria-label="最小验证路径">
+      <b>建议先选 1 个角色，跑通 2-3 个场景。</b>
+      <p>合作不需要一开始就铺开成完整生态。先用一个高辨识度角色验证 AI 出镜、潮玩转译和内容反馈，拿到内部评审与发布数据后，再决定复制到更多角色、更多世界和更大的商业节点。</p>
+    </section>
+
     <section class="image-grid" aria-label="IP 资产系统视觉">
-      <figure><img src="assets/concepts/relationship-core.png" alt="SUMMER BREEZE CLUB 夏日潮玩盲盒发售视觉"></figure>
-      <figure><img src="assets/concepts/asset-command-room.png" alt="BOSS AND YEAH 潮玩盲盒发售视觉"></figure>
+      <figure>
+        <img src="assets/concepts/relationship-core.png" alt="SUMMER BREEZE CLUB 夏日潮玩盲盒发售视觉">
+        <figcaption><strong>关系进入现实收藏：</strong>同一角色被转译为盲盒、隐藏款与周边组合，说明“关系资产”如何落到可购买、可展示、可复购的实体产品。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/concepts/asset-command-room.png" alt="BOSS AND YEAH 潮玩盲盒发售视觉">
+        <figcaption><strong>风格可以横向迁移：</strong>同一套 IP 商品化逻辑可切换到男性向、喜剧感、街头潮流或收藏向角色，不被单一审美限制。</figcaption>
+      </figure>
     </section>
 
     <!-- FLYWHEEL -->
@@ -774,7 +871,10 @@
           <p>游戏创造情感，潮玩固化关系，AI 出镜延伸场景，创作者放大传播，新玩家流入再回到游戏——每转一圈，IP 的资产规模和商业价值都在增加。</p>
         </div>
 
-        <figure class="image-panel"><img src="assets/concepts/growth-flywheel.png" alt="ACE MAGNETIC RUSH 赛博潮玩盲盒发售视觉"></figure>
+        <figure class="image-panel">
+          <img src="assets/concepts/growth-flywheel.png" alt="ACE MAGNETIC RUSH 赛博潮玩盲盒发售视觉">
+          <figcaption><strong>飞轮中的潮玩转化结果：</strong>角色从游戏关系节点进入盲盒系列、周边和开箱传播，成为下一轮内容扩散与用户回流的素材。</figcaption>
+        </figure>
 
         <div class="flywheel">
           <!-- 上半圈：游戏 → 情感 → 拥有 → 潮玩 -->
@@ -1024,7 +1124,15 @@
           <p>我不是提供 AI 生成服务的外包供应商。我承接的是整套体系中需要「理解 IP 商业化逻辑 + 懂创作者生态 + 能实际生产 AIGC 内容」的复合位置。</p>
         </div>
 
-        <figure class="image-panel"><img src="assets/concepts/ai-appearance-engine.png" alt="PONYO 便利店直播流成片视觉"></figure>
+        <figure class="image-panel">
+          <img src="assets/concepts/ai-appearance-engine.png" alt="PONYO 便利店直播流成片视觉">
+          <figcaption><strong>AI 出镜结果示例：</strong>角色进入便利店、货架、直播流等真实日常语境，变成可发布、可联名、可转化的内容触点。</figcaption>
+        </figure>
+
+        <div class="delivery-boundary">
+          <b>交付边界</b>
+          <p><strong>PONYO 直接交付：</strong>IP 商业化判断、角色转译方向、AIGC 样片、模板规范、展示包装与创作者任务框架。<strong>游戏公司内部团队配合：</strong>IP 素材授权、世界观资料、产品排期、法务审核、上线资源与运营执行。</p>
+        </div>
 
         <div class="phase-list">
           <div class="phase">
@@ -1223,11 +1331,16 @@
         <div class="sec-head">
           <div class="label">Selected Output Evidence</div>
           <h2>系统跑通后，这是结果。</h2>
-          <p>五类成片，覆盖潮玩发售、角色代言、AI 出镜、世界观叙事、风格化资产——证明角色可以从游戏走进现实每一个场景，且每个场景都有可延伸的商业路径。</p>
+          <p>六类成片，覆盖潮玩发售、角色代言、AI 出镜、世界观叙事、风格化资产和真实直播流——证明角色可以从游戏走进现实每一个场景，且每个场景都有可延伸的商业路径。</p>
         </div>
         <div class="output-list">
           <article class="output">
-            <div class="video-shell"><img class="output-poster" src="assets/posters/ace-wave-rider-poster.jpg" alt="ACE: WAVE RIDER 封面图"><video autoplay muted loop playsinline poster="assets/posters/ace-wave-rider-poster.jpg"><source src="assets/videos/ace-wave-rider-final.mp4" type="video/mp4"></video></div>
+            <div class="video-shell">
+              <video controls preload="metadata" muted playsinline poster="assets/posters/ace-wave-rider-poster.jpg" aria-label="ACE: WAVE RIDER 成片视频">
+                <source src="assets/videos/ace-wave-rider-final.mp4" type="video/mp4">
+              </video>
+              <a class="video-direct" href="assets/videos/ace-wave-rider-final.mp4" target="_blank" rel="noopener">打开视频</a>
+            </div>
             <div class="output-copy">
               <small>Output 01 / Toy Launch · 潮玩发售</small>
               <h3>ACE: WAVE RIDER</h3>
@@ -1235,7 +1348,12 @@
             </div>
           </article>
           <article class="output">
-            <div class="video-shell"><img class="output-poster" src="assets/posters/kitchen-poster.jpg" alt="PONYO KITCHEN LAB 封面图"><video autoplay muted loop playsinline poster="assets/posters/kitchen-poster.jpg"><source src="assets/videos/kitchen-final.mp4" type="video/mp4"></video></div>
+            <div class="video-shell">
+              <video controls preload="metadata" muted playsinline poster="assets/posters/kitchen-poster.jpg" aria-label="PONYO KITCHEN LAB 成片视频">
+                <source src="assets/videos/kitchen-final.mp4" type="video/mp4">
+              </video>
+              <a class="video-direct" href="assets/videos/kitchen-final.mp4" target="_blank" rel="noopener">打开视频</a>
+            </div>
             <div class="output-copy">
               <small>Output 02 / Character Spokesperson · 角色代言</small>
               <h3>PONYO KITCHEN LAB</h3>
@@ -1243,7 +1361,12 @@
             </div>
           </article>
           <article class="output">
-            <div class="video-shell"><img class="output-poster" src="assets/posters/live-anime-poster.jpg" alt="LIVE ANIME WORKS HERE 封面图"><video autoplay muted loop playsinline poster="assets/posters/live-anime-poster.jpg"><source src="assets/videos/live-anime-final.mp4" type="video/mp4"></video></div>
+            <div class="video-shell">
+              <video controls preload="metadata" muted playsinline poster="assets/posters/live-anime-poster.jpg" aria-label="LIVE ANIME WORKS HERE 成片视频">
+                <source src="assets/videos/live-anime-final.mp4" type="video/mp4">
+              </video>
+              <a class="video-direct" href="assets/videos/live-anime-final.mp4" target="_blank" rel="noopener">打开视频</a>
+            </div>
             <div class="output-copy">
               <small>Output 03 / AI Appearance · AI 出镜</small>
               <h3>LIVE ANIME WORKS HERE</h3>
@@ -1251,7 +1374,12 @@
             </div>
           </article>
           <article class="output">
-            <div class="video-shell"><img class="output-poster" src="assets/posters/star-tower-poster.jpg" alt="星潮塔：逆坠之舞 封面图"><video autoplay muted loop playsinline poster="assets/posters/star-tower-poster.jpg"><source src="assets/videos/star-tower-final.mp4" type="video/mp4"></video></div>
+            <div class="video-shell">
+              <video controls preload="metadata" muted playsinline poster="assets/posters/star-tower-poster.jpg" aria-label="星潮塔：逆坠之舞 成片视频">
+                <source src="assets/videos/star-tower-final.mp4" type="video/mp4">
+              </video>
+              <a class="video-direct" href="assets/videos/star-tower-final.mp4" target="_blank" rel="noopener">打开视频</a>
+            </div>
             <div class="output-copy">
               <small>Output 04 / World Trailer · 世界观叙事</small>
               <h3>星潮塔：逆坠之舞</h3>
@@ -1259,7 +1387,12 @@
             </div>
           </article>
           <article class="output">
-            <div class="video-shell"><img class="output-poster" src="assets/posters/night-garage-poster.jpg" alt="NIGHT GARAGE 封面图"><video autoplay muted loop playsinline poster="assets/posters/night-garage-poster.jpg"><source src="assets/videos/night-garage-final.mp4" type="video/mp4"></video></div>
+            <div class="video-shell">
+              <video controls preload="metadata" muted playsinline poster="assets/posters/night-garage-poster.jpg" aria-label="NIGHT GARAGE 成片视频">
+                <source src="assets/videos/night-garage-final.mp4" type="video/mp4">
+              </video>
+              <a class="video-direct" href="assets/videos/night-garage-final.mp4" target="_blank" rel="noopener">打开视频</a>
+            </div>
             <div class="output-copy">
               <small>Output 05 / Style Asset · 风格化资产</small>
               <h3>NIGHT GARAGE</h3>
@@ -1267,7 +1400,12 @@
             </div>
           </article>
           <article class="output">
-            <div class="video-shell"><img class="output-poster" src="assets/posters/ponyo-convenience-live-poster.jpg" alt="PONYO 便利店直播感 封面图"><video autoplay muted loop playsinline poster="assets/posters/ponyo-convenience-live-poster.jpg"><source src="assets/videos/ponyo-convenience-live-final.mp4" type="video/mp4"></video></div>
+            <div class="video-shell">
+              <video controls preload="metadata" muted playsinline poster="assets/posters/ponyo-convenience-live-poster.jpg" aria-label="PONYO 便利店直播感 成片视频">
+                <source src="assets/videos/ponyo-convenience-live-final.mp4" type="video/mp4">
+              </video>
+              <a class="video-direct" href="assets/videos/ponyo-convenience-live-final.mp4" target="_blank" rel="noopener">打开视频</a>
+            </div>
             <div class="output-copy">
               <small>Output 06 / Social Live Slice · 真实直播流</small>
               <h3>PONYO 便利店直播感</h3>
@@ -1284,6 +1422,7 @@
         <div class="label">Let's Build Together</div>
         <h2>从哪个阶段开始都可以。</h2>
         <p>不必一次性搭建整套体系。可以从 AI 出镜模板库开始，也可以从角色关系资产系统设计开始——重要的是先让一个角色跑通，再复制到更多角色和更多世界。</p>
+        <p class="cta-next">邮件发出后，我会在 48 小时内回复，安排一次 30 分钟视频通话，先了解你的 IP 现状、内部目标，以及最适合先跑通的那个阶段。</p>
         <div class="cta-links">
           <div class="cta-link">
             <div class="cta-link-type">Email</div>
