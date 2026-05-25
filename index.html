@@ -581,25 +581,6 @@
       line-height: 1.75;
     }
 
-    .pilot {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .pilot-panel {
-      background: var(--cream);
-      border: 1px solid var(--line);
-      padding: clamp(22px, 3vw, 34px);
-    }
-
-    .pilot-panel h3 {
-      margin: 0 0 18px;
-      font-size: 28px;
-      line-height: 1.1;
-    }
-
     .list {
       display: grid;
       gap: 10px;
@@ -676,8 +657,7 @@
     @media (max-width: 1080px) {
       .hero,
       .section-head,
-      .profile-grid,
-      .pilot {
+      .profile-grid {
         grid-template-columns: 1fr;
       }
 
@@ -752,8 +732,7 @@
       <nav class="nav" aria-label="页面导航">
         <a href="#about">个人介绍</a>
         <a href="#works">作品样板</a>
-        <a href="#modules">合作模块</a>
-        <a href="#pilot">试合作</a>
+        <a href="#modules">延展方向</a>
       </nav>
     </header>
 
@@ -768,7 +747,6 @@
           <div class="hero-actions">
             <a class="btn" href="#works">查看样板</a>
             <a class="btn alt" href="#about">了解 PONYO</a>
-            <a class="btn alt" href="assets/docs/net-ease-coop-memo.md">合作备忘录</a>
           </div>
         </div>
 
@@ -820,7 +798,6 @@
             </p>
             <div class="profile-actions">
               <a href="assets/docs/about-ponyo.md">查看完整介绍</a>
-              <a class="alt" href="assets/docs/net-ease-coop-memo.md">合作切入备忘录</a>
             </div>
           </div>
 
@@ -1057,46 +1034,6 @@
         </div>
       </section>
 
-      <section class="band" id="pilot">
-        <div class="section-head">
-          <h2>7-10 Day Pilot</h2>
-          <p>
-            初次合作不建议直接做“大而全的创作者生态”。更稳的方式是先用一个游戏角色或一个版本节点，跑一组能被内部和客户看懂的小样。
-          </p>
-        </div>
-
-        <div class="pilot">
-          <div class="pilot-panel">
-            <h3>建议首轮交付</h3>
-            <ul class="list">
-              <li data-n="1">1 个创作者挑战主题，例如“为角色拍一支 15 秒潮玩广告”。</li>
-              <li data-n="2">3 个商业化内容方向：潮玩发售、角色代言、联名场景。</li>
-              <li data-n="3">1 张官方主视觉 / 发售页，用于内部评审或招商展示。</li>
-              <li data-n="4">1 支 15 秒官方示范短片，用于活动样板和社媒预热。</li>
-              <li data-n="5">5 条 AIGC 提示词模板 + 投稿规则 + 评选标准。</li>
-            </ul>
-          </div>
-
-          <div class="pilot-panel">
-            <h3>需要游戏团队提供</h3>
-            <ul class="list">
-              <li data-n="A">角色设定、世界观关键词、目标玩家画像。</li>
-              <li data-n="B">Logo、字体、色彩、官方素材包和美术规范。</li>
-              <li data-n="C">角色禁区、审核规则、不能改动的设定。</li>
-              <li data-n="D">活动目标：拉新、促活、版本预热、创作者招募或商业联名。</li>
-              <li data-n="E">最终发布平台和内容比例：抖音、小红书、B站、TikTok、X 等。</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="process" aria-label="执行流程">
-          <div class="step"><b>Brief</b><span>拿到 IP 资料和活动目标，先确认内容边界。</span></div>
-          <div class="step"><b>Direction</b><span>拆 3 个视觉和商业化方向，快速定主线。</span></div>
-          <div class="step"><b>Prototype</b><span>出主视觉、故事板和示范短片。</span></div>
-          <div class="step"><b>Template</b><span>把示范拆成提示词、封面、标题、投稿格式。</span></div>
-          <div class="step"><b>Package</b><span>整理为活动页、内部提案页或创作者说明。</span></div>
-        </div>
-      </section>
     </main>
 
     <footer class="footer">
