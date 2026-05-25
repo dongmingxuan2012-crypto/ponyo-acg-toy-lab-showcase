@@ -110,10 +110,11 @@
     }
     .image-panel img {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
       display: block;
-      filter: contrast(1.06) saturate(1.04) brightness(.82);
+      background: #0b0d12;
+      filter: contrast(1.04) saturate(1.06) brightness(.96);
     }
     .image-grid {
       padding: 80px clamp(28px,5vw,70px);
@@ -134,7 +135,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: contrast(1.06) saturate(1.04) brightness(.82);
+      filter: contrast(1.04) saturate(1.06) brightness(.96);
     }
 
     /* ── HERO ── */
@@ -164,13 +165,13 @@
     }
     .hero-visual img {
       position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; filter: contrast(1.12) saturate(.92) brightness(.6);
-      opacity: .8; transform: scale(1.05);
+      object-fit: cover; filter: contrast(1.06) saturate(1.02) brightness(.86);
+      opacity: .95; transform: scale(1.02);
     }
     .hero-visual::after {
       content: ""; position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(7,8,11,.34), transparent 45%, rgba(7,8,11,.78)),
-                  linear-gradient(180deg, transparent, rgba(7,8,11,.9));
+      background: linear-gradient(90deg, rgba(7,8,11,.22), transparent 50%, rgba(7,8,11,.42)),
+                  linear-gradient(180deg, transparent 58%, rgba(7,8,11,.62));
     }
     .core-panel {
       position: absolute; z-index: 3; left: 48px; right: 48px; bottom: 48px;
@@ -691,7 +692,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="assets/companion-world-key-visual.png" alt="游戏IP资产一体化核心视觉">
+        <img src="assets/companion-world-key-visual.png" alt="ACE WAVE RIDER 潮玩发售主视觉">
         <div class="core-panel">
           <b>COMPANION<br>WORLD MODEL</b>
           <p>陪伴型世界模型：以角色关系为中轴，打通游戏体验、物理拥有、AI 出镜与创作者生态，构建可持续增长的 IP 商业体系。</p>
@@ -714,8 +715,8 @@
     </section>
 
     <section class="image-grid" aria-label="IP 资产系统视觉">
-      <figure><img src="assets/concepts/relationship-core.png" alt="角色关系资产系统视觉"></figure>
-      <figure><img src="assets/concepts/asset-command-room.png" alt="角色资产指挥舱视觉"></figure>
+      <figure><img src="assets/concepts/relationship-core.png" alt="AMY WAVE CLUB 潮玩商品化视觉"></figure>
+      <figure><img src="assets/concepts/asset-command-room.png" alt="BOSS AND YEAH 潮玩盲盒发售视觉"></figure>
     </section>
 
     <!-- FLYWHEEL -->
@@ -727,7 +728,7 @@
           <p>游戏创造情感，潮玩固化关系，AI 出镜延伸场景，创作者放大传播，新玩家流入再回到游戏——每转一圈，IP 的资产规模和商业价值都在增加。</p>
         </div>
 
-        <figure class="image-panel"><img src="assets/concepts/growth-flywheel.png" alt="关系飞轮增长视觉"></figure>
+        <figure class="image-panel"><img src="assets/concepts/growth-flywheel.png" alt="ACE WAVE RIDER 前 15 秒多场景故事板"></figure>
 
         <div class="flywheel">
           <!-- 上半圈：游戏 → 情感 → 拥有 → 潮玩 -->
@@ -977,7 +978,7 @@
           <p>我不是提供 AI 生成服务的外包供应商。我承接的是整套体系中需要「理解 IP 商业化逻辑 + 懂创作者生态 + 能实际生产 AIGC 内容」的复合位置。</p>
         </div>
 
-        <figure class="image-panel"><img src="assets/concepts/ai-appearance-engine.png" alt="AI 出镜与创作者模板引擎视觉"></figure>
+        <figure class="image-panel"><img src="assets/concepts/ai-appearance-engine.png" alt="ACE WAVE RIDER 后 15 秒多场景故事板"></figure>
 
         <div class="phase-list">
           <div class="phase">
